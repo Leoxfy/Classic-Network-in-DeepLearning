@@ -44,15 +44,15 @@ loader = transforms.Compose(
     ]
 )
 
-original_image = load_image("annahathaway.png")
-style_img = load_image("style.jpg")
+original_image = load_image("generated2.png")
+style_img = load_image("style1.jpg")
 
 model = VGG().to(device).eval()
 #  generated = torch.randn(original_image.shape, device, requires_grad=True)
 generated = original_image.clone().requires_grad_(True)
 
 #  Hyperparameters
-total_step = 6000
+total_step = 10000
 learning_rate = 0.001
 alpha = 1
 beta = 0.01
@@ -87,5 +87,5 @@ for step in range(total_step):
     optimizer.step()
     if step % 200 == 0:
         print(total_loss)
-        save_image(generated, "generated.png")
+        save_image(generated, "generated3.png")
 
