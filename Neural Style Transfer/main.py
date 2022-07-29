@@ -47,7 +47,7 @@ loader = transforms.Compose(
     ]
 )
 
-original_image = load_image("source.png")
+original_image = load_image("myschool.JPG")
 style_img = load_image("style1.jpg")
 
 model = VGG().to(device).eval()
@@ -90,5 +90,5 @@ for step in range(total_step):
     optimizer.step()
     if step % 200 == 0:
         print(total_loss)
-        save_image(generated, "pku_sty.png")
+        save_image(generated, "myschool_sty.png")
 
